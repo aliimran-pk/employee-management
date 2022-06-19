@@ -6,7 +6,8 @@ public class Employee {
 	@Override
 	public String toString() {
 		return "Employee [empId=" + empId + ", name=" + name + ", designation=" + designation + ", salary=" + salary
-				+ ", dob=" + dob + ", hostName=" + hostName + ", ipAddress=" + ipAddress + "]";
+				+ ", dob=" + dob + ", hostName=" + hostName + ", ipAddress=" + ipAddress + ", appVersion=" + appVersion
+				+ "]";
 	}
 
 	private String empId;
@@ -16,6 +17,7 @@ public class Employee {
 	private Date dob;
 	private String hostName;
 	private String ipAddress;
+	private String appVersion;
 	
 	   
 	public String getHostName() {
@@ -76,6 +78,14 @@ public class Employee {
 
 	public void setEmpId(String empId) {
 		this.empId = empId;
+	}
+
+	public String getAppVersion() {
+		return appVersion;
+	}
+
+	public void setAppVersion(String appVersion) {
+		this.appVersion = appVersion;
 	}
 
 }

@@ -5,6 +5,7 @@ import java.net.UnknownHostException;
 import java.util.Date;
 import java.util.Random;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +15,11 @@ import com.ibm.employeemanagment.model.Employee;
 @RestController
 public class EmployeeController {
 
+	@Value("${application.version")
+	private String appVersion;
+	
 	@RequestMapping(value = "/employee", method = RequestMethod.GET)
-	public Employee firstPage() {
+	public Employee getEmployee() {
 
 		Employee emp = new Employee();
 		
@@ -30,7 +34,8 @@ public class EmployeeController {
 		try {
 			addr = InetAddress.getLocalHost();
 			emp.setHostName(addr.getHostName() + ":" + System.getenv("HOSTNAME"));
-			emp.setIpAddress(addr.getHostAddress());			
+			emp.setIpAddress(addr.getHostAddress());	
+			emp.setAppVersion(this.appVersion);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
