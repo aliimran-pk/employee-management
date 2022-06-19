@@ -27,7 +27,7 @@ public class EmployeeController {
 		emp.setName("Ali Imran");
         emp.setDesignation("Sr. Consulatnt@IBM");
 		emp.setEmpId("emp-"+ random.nextInt(1000));
-		emp.setSalary(3000);
+		emp.setSalary(13000);
 		emp.setDob(new Date());
 		
 		InetAddress addr;
