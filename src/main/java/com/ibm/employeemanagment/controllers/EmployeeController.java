@@ -15,8 +15,14 @@ import com.ibm.employeemanagment.model.Employee;
 @RestController
 public class EmployeeController {
 
-	@Value("${application.version")
+	@Value("${application.version}")
 	private String appVersion;
+	
+	@Value("${application.database.username}")
+	private String dbUserName;
+	
+	@Value("${application.database.password}")
+	private String dbUserPassword;
 	
 	@RequestMapping(value = "/employee", method = RequestMethod.GET)
 	public Employee getEmployee() {
@@ -26,7 +32,7 @@ public class EmployeeController {
 		Random random = new Random();
 		emp.setName("Ali Imran");
         emp.setDesignation("Sr. Consulatnt@IBM");
-		emp.setEmpId("emp-"+ random.nextInt(1000));
+		emp.setEmpId(dbUserName+ "-"+dbUserPassword + "-"+ random.nextInt(1000));
 		emp.setSalary(13000);
 		emp.setDob(new Date());
 		
